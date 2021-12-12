@@ -10,6 +10,9 @@ target 'SampleProject' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+  # Pods for ReactNativeMaps
+  pod 'GoogleMaps'
+
   # Uncomment to opt-in to using Flipper
   #
   # if !ENV['CI']

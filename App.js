@@ -1,21 +1,44 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './src/containers/Home';
+import GoogleMapScreen from './src/containers/GoogleMap';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const MyStack = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'Welcome' }}
+        />
+        <Stack.Screen name="GoogleMap" component={GoogleMapScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default MyStack;
+
+
+
+
+
+// import React from 'react';
+// import Home from './src/containers/Home';
+// import GoogleMap from './src/containers/GoogleMap';
+// import { Navigation } from "react-native-navigation";
+// import Router from './src/routes';
+
+// export default function App() {
+//   return (
+//     // <Home></Home>
+//     <GoogleMap/>
+//     // <Router/>
+//   );
+// }
+
+
