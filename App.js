@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './src/containers/Home';
 import GoogleMapScreen from './src/containers/GoogleMap';
+import DeailScreen from './src/containers/Detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +17,7 @@ const MyStack = () => {
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen name="GoogleMap" component={GoogleMapScreen} />
+        <Stack.Screen name="Detail" component={DeailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
