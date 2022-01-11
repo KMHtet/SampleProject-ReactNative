@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Linking, Image } from 'react-native';
-import { deviceWidth, deviceHeight_by_six, deviceHeight_by_five } from '../../../themes/metrics';
+import { deviceWidth, deviceHeight_by_five } from '../../../themes/metrics';
 import images from '../../../assets/images';
 
 export default class ListItem extends React.PureComponent {
@@ -39,7 +39,7 @@ export default class ListItem extends React.PureComponent {
                     return Linking.openURL(url);
                 }
             })
-            .catch((err) => console.warn("kmh", 'An error occurred', err));
+            .catch((err) => console.log("kmh", 'An error occurred', err));
     }
 
     render() {

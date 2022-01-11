@@ -233,7 +233,7 @@ export default class GoogleMap extends React.PureComponent {
         const keyWord = searchKeyword.toLowerCase().split(' ');
         const filterShop = shopList.filter(item => keyWord.every(
             key => item.name.toLocaleLowerCase().split(' ').indexOf(key) > -1 ||
-            item.address.toLocaleLowerCase().split(' ').indexOf(key) > -1
+                item.address.toLocaleLowerCase().split(' ').indexOf(key) > -1
         ));
         this.setState({
             shopList: filterShop,
@@ -307,6 +307,10 @@ export default class GoogleMap extends React.PureComponent {
         this.flatListRef.scrollToIndex({ animated: true, index: indexOfStore });
     }
 
+    onTestEvent = (event) => {
+        console.warn("kmh", "on test Event", event);
+    }
+
     render() {
         const { latitude, longitude, shopList, searchKeyword } = this.state;
         return (
@@ -317,6 +321,16 @@ export default class GoogleMap extends React.PureComponent {
                     customMapStyle={mapStyle}
                     showsMyLocationButton={true}
                     onPress={(event) => this.onPressMap(event)}
+
+                    initialCamera={{
+                        center: { latitude: latitude, longitude: longitude },
+                        pitch: 0,
+                        zoom: 12,
+                        heading: 0,
+                        altitude: 0
+                    }}
+                    onRegionChangeComplete={(event) => this.onTestEvent(event)}
+
                     region={{
                         latitude: latitude,
                         longitude: longitude,
@@ -395,7 +409,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 0 },
         shadowRadius: 5,
         shadowOpacity: 0.4,
-      },
+    },
     container: {
         flex: 1,
     },
