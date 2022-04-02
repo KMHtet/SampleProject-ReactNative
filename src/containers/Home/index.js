@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Button, Alert } from 'react-native';
+import Navigation from '../Navigator/homeNavigation';
 
 export default class Home extends React.PureComponent {
 
@@ -12,7 +13,7 @@ export default class Home extends React.PureComponent {
             <View style={styles.container} >
                 <Button onPress={
                     () => this.onPressButton()}
-                    title="Google Map Example"
+                    title="Google Map"
                     color="#841584" />
             </View>
         );

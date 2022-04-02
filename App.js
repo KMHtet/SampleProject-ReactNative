@@ -1,46 +1,41 @@
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/containers/Home';
-import GoogleMapScreen from './src/containers/GoogleMap';
-import DeailScreen from './src/containers/Detail';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeNavigation from './src/containers/Navigator/homeNavigation';
+import SettingNavigation from './src/containers/Navigator/settingNavigation';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+// const HomeStack  = createNativeStackNavigator();
+// const SettingsStack = createNativeStackNavigator();
 
-const MyStack = () => {
+// function HomeStackNavigation({navigation}) {
+//   return (
+//       <HomeStack.Navigator screenOptions={{ headerShown: false, tabBarStyle: { display: "none" } }}>
+//           <HomeStack.Screen name="Home" component={() => <HomeNavigation navigation={navigation}/>}/>
+//       </HomeStack.Navigator>
+//   )
+// }
+
+// function SettingsStackNavigation({navigation}) {
+//   return (
+//       <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
+//           <SettingsStack.Screen name="Setting" component={() => <SettingNavigation navigation={navigation}/>}/>
+//       </SettingsStack.Navigator>
+//   )
+// }
+
+const BottomTab = ({navigation}) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: 'Welcome' }}
-        />
-        <Stack.Screen name="GoogleMap" component={GoogleMapScreen} />
-        <Stack.Screen name="Detail" component={DeailScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
+        <Tab.Screen name="Home" component={() => <HomeNavigation navigation={navigation}/>} />
+        <Tab.Screen name="Setting" component={() => <SettingNavigation navigation={navigation}/>} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-export default MyStack;
-
-
-
-
-
-// import React from 'react';
-// import Home from './src/containers/Home';
-// import GoogleMap from './src/containers/GoogleMap';
-// import { Navigation } from "react-native-navigation";
-// import Router from './src/routes';
-
-// export default function App() {
-//   return (
-//     // <Home></Home>
-//     <GoogleMap/>
-//     // <Router/>
-//   );
-// }
+export default BottomTab;
 
 

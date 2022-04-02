@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert, Linking, Image } from 'react-native';
-import { deviceWidth, deviceHeight_by_five } from '../../../themes/metrics';
-import images from '../../../assets/images';
+import { deviceWidth, deviceHeight_by_five } from '../../../../themes/metrics';
+import images from '../../../../assets/images';
 
 export default class ListItem extends React.PureComponent {
 

@@ -4,11 +4,11 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import mapStyle from './mapStyles';
 import { findIndex } from 'lodash';
-import colors from '../../themes/colors';
+import colors from '../../../themes/colors';
 import ListItem from './components/listItem';
 import ItemMaker from './components/itemMaker';
-import images from '../../assets/images';
-import { deviceWidth, deviceHeight_by_six } from '../../themes/metrics';
+import images from '../../../assets/images';
+import { deviceWidth, deviceHeight_by_six } from '../../../themes/metrics';
 
 const shopListForFind = [
     {
@@ -152,68 +152,68 @@ export default class GoogleMap extends React.PureComponent {
         if (coordinate) {
             this.setState({ latitude: coordinate.latitude, longitude: coordinate.longitude }, () => { });
         }
-        const shopListMockData = this.onCreateMockData(coordinate.latitude, coordinate.longitude);
-        this.setState({ shopList: shopListMockData }, () => { });
+        // const shopListMockData = this.onCreateMockData(coordinate.latitude, coordinate.longitude);
+        // this.setState({ shopList: shopListMockData }, () => { });
     }
 
-    onCreateMockData = (lat, lon) => {
-        let shopMockList = [];
-        shopMockList.push({
-            id: 0,
-            name: 'shop ' + id,
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 2,
-            latitude: lat + 0.01,
-            longitude: lon + 0.01,
-        });
-        shopMockList.push({
-            id: 1,
-            name: 'shop 1',
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 2,
-            latitude: lat - 0.01,
-            longitude: lon + 0.01,
-        });
-        shopMockList.push({
-            id: 2,
-            name: 'shop 2',
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 2,
-            latitude: lat + 0.01,
-            longitude: lon - 0.01,
-        });
-        shopMockList.push({
-            id: 3,
-            name: 'shop 3',
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 1,
-            latitude: lat - 0.01,
-            longitude: lon - 0.01,
-        });
-        shopMockList.push({
-            id: 4,
-            name: 'shop 4',
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 2,
-            latitude: lat + 0.015,
-            longitude: lon + 0.015,
-        });
-        shopMockList.push({
-            id: 5,
-            name: 'shop ' + id,
-            address: 'Mon',
-            phone: '+959688360940',
-            type: 1,
-            latitude: lat - 0.015,
-            longitude: lon - 0.015,
-        });
-        return shopMockList;
-    };
+    // onCreateMockData = (lat, lon) => {
+    //     let shopMockList = [];
+    //     shopMockList.push({
+    //         id: '0',
+    //         name: 'shop ' + id,
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 2,
+    //         latitude: lat + 0.01,
+    //         longitude: lon + 0.01,
+    //     });
+    //     shopMockList.push({
+    //         id: '1',
+    //         name: 'shop 1',
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 2,
+    //         latitude: lat - 0.01,
+    //         longitude: lon + 0.01,
+    //     });
+    //     shopMockList.push({
+    //         id: '2',
+    //         name: 'shop 2',
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 2,
+    //         latitude: lat + 0.01,
+    //         longitude: lon - 0.01,
+    //     });
+    //     shopMockList.push({
+    //         id: '3',
+    //         name: 'shop 3',
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 1,
+    //         latitude: lat - 0.01,
+    //         longitude: lon - 0.01,
+    //     });
+    //     shopMockList.push({
+    //         id: '4',
+    //         name: 'shop 4',
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 2,
+    //         latitude: lat + 0.015,
+    //         longitude: lon + 0.015,
+    //     });
+    //     shopMockList.push({
+    //         id: '5',
+    //         name: 'shop ' + id,
+    //         address: 'Mon',
+    //         phone: '+959688360940',
+    //         type: 1,
+    //         latitude: lat - 0.015,
+    //         longitude: lon - 0.015,
+    //     });
+    //     return shopMockList;
+    // };
 
     onChangeSearch = (text) => {
         this.setState({ searchKeyword: text }, () => { });

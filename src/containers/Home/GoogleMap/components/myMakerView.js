@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import images from '../../../assets/images';
+import images from '../../../../assets/images';
 
 export default class MyMarkerView extends React.PureComponent {
     render() {
