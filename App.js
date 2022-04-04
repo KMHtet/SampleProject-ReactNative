@@ -2,40 +2,40 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeNavigation from './src/containers/Navigator/homeNavigation';
-import SettingNavigation from './src/containers/Navigator/settingNavigation';
+import HomeScreen from './src/containers/Home';
+import GoogleMapScreen from './src/containers/Home/GoogleMap';
+import DetailScreen from './src/containers/Home/GoogleMap/Detail';
+import SettingScreen from './src/containers/Setting';
+import SettingDetailScreen from './src/containers/Setting/settingDetail';
 
 const Tab = createBottomTabNavigator();
-// const HomeStack  = createNativeStackNavigator();
-// const SettingsStack = createNativeStackNavigator();
+const HomeStack  = createNativeStackNavigator();
+const SettingsStack = createNativeStackNavigator();
 
-// function HomeStackNavigation({navigation}) {
-//   return (
-//       <HomeStack.Navigator screenOptions={{ headerShown: false, tabBarStyle: { display: "none" } }}>
-//           <HomeStack.Screen name="Home" component={() => <HomeNavigation navigation={navigation}/>}/>
-//       </HomeStack.Navigator>
-//   )
-// }
+function TabScreen({navigation}) {
+  return (
+      <Tab.Navigator screenOptions={{ headerShown: false }}>
+          <Tab.Screen name="Home" component={HomeScreen}/>
+          <Tab.Screen name="Setting" component={SettingScreen}/>
+      </Tab.Navigator>
+  )
+}
 
-// function SettingsStackNavigation({navigation}) {
-//   return (
-//       <SettingsStack.Navigator screenOptions={{ headerShown: false }}>
-//           <SettingsStack.Screen name="Setting" component={() => <SettingNavigation navigation={navigation}/>}/>
-//       </SettingsStack.Navigator>
-//   )
-// }
-
-const BottomTab = ({navigation}) => {
+const BottomTab = ({ navigation }) => {
   return (
     <NavigationContainer>
-      <Tab.Navigator screenOptions={{ headerShown: false }}>
-        <Tab.Screen name="Home" component={() => <HomeNavigation navigation={navigation}/>} />
-        <Tab.Screen name="Setting" component={() => <SettingNavigation navigation={navigation}/>} />
-      </Tab.Navigator>
+      <HomeStack.Navigator>
+        <HomeStack.Screen name="Home" component={TabScreen}/>
+        <HomeStack.Screen name="GoogleMap" component={GoogleMapScreen}/>
+        <HomeStack.Screen name="Detail" component={DetailScreen}/>
+        <HomeStack.Screen name="SettingDetailScreen" component={DetailScreen}/>
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default BottomTab;
+
+
 
 

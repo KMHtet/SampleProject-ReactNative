@@ -12,7 +12,7 @@ export default class Setting extends React.PureComponent{
     };
 
     onPressGoBackButton = () => {
-        this.props.navigation.goBack();
+        this.props.navigation.popToTop();
     };
 
     render() {
@@ -29,7 +29,7 @@ export default class Setting extends React.PureComponent{
                     color="#841584" />
                 <Button onPress={
                     () => this.onPressGoBackButton()}
-                    title="GoBack"
+                    title="popToTop"
                     color="#841584" />
             </View>
         )

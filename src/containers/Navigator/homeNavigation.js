@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const HomeNavigation = ({navigation}) => {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator screenOptions={{tabBarVisible:false}}>
+      <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="GoogleMap" component={GoogleMapScreen} />
         <Stack.Screen name="Detail" component={DetailScreen} />
