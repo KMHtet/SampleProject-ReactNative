@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 
-export default class Setting extends React.PureComponent{
+export default class Navigation extends React.PureComponent{
 
     onPressNavigateButton = () => {
         this.props.navigation.navigate('SettingDetail');
@@ -12,12 +12,15 @@ export default class Setting extends React.PureComponent{
     };
 
     onPressGoBackButton = () => {
+        this.props.navigation.popToTop();
+    };
+
+    onPressGoBackButton = () => {
         this.props.navigation.goBack();
     };
 
     render() {
         const { navigation, route } = this.props;
-        navigation.setOptions({ title: 'Updated!' });
         return (
             <View style={styles.container}>
                 <Button onPress={
@@ -31,6 +34,10 @@ export default class Setting extends React.PureComponent{
                 <Button onPress={
                     () => this.onPressGoBackButton()}
                     title="GoBack"
+                    color="#841584" />
+                <Button onPress={
+                    () => this.onPressGoBackButton()}
+                    title="popToTop"
                     color="#841584" />
             </View>
         )

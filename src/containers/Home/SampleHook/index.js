@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, StyleSheet} from 'react-native';
 
-const SettingDetail = (props) => {
+const SampleHook = (props) => {
 
     const [name, setName] = useState("");
     const [count, setCount] = useState(0);
 
-    useEffect(() => {
+    useEffect(() => { // component did mount
         setCount(2);
     })
 
@@ -23,7 +23,7 @@ const SettingDetail = (props) => {
     );
 }
 
-export default SettingDetail;
+export default SampleHook;
 
 const styles = StyleSheet.create({
     container: {
