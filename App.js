@@ -28,7 +28,8 @@ const BottomTab = ({ navigation }) => {
         <HomeStack.Screen name="Home" component={TabScreen}/>
         <HomeStack.Screen name="GoogleMap" component={GoogleMapScreen}/>
         <HomeStack.Screen name="Detail" component={DetailScreen}/>
-        <HomeStack.Screen name="SettingDetailScreen" component={DetailScreen}/>
+        <HomeStack.Screen name="Setting" component={SettingScreen}/>
+        <HomeStack.Screen name="SettingDetail" component={SettingDetailScreen}/>
       </HomeStack.Navigator>
     </NavigationContainer>
   );

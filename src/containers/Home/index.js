@@ -1,6 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Button, Alert } from 'react-native';
-import Navigation from '../Navigator/homeNavigation';
+import { View, StyleSheet, Button, FlatList, SafeAreaView, Text } from 'react-native';
+
+const DATA = [
+    {
+        id: 1,
+        title: 'Google Map',
+        Screen: 'GoogleMap'
+    },
+    {
+        id: 2,
+        title: 'Google Map',
+        Screen: 'GoogleMap'
+    }
+]
 
 export default class Home extends React.PureComponent {
 
@@ -10,12 +22,15 @@ export default class Home extends React.PureComponent {
 
     render() {
         return (
-            <View style={styles.container} >
-                <Button onPress={
-                    () => this.onPressButton()}
-                    title="Google Map"
-                    color="#841584" />
-            </View>
+            <SafeAreaView style={styles.container}>
+                <Text>Hello</Text>
+                {/* <View style={styles.container} >
+                    <Button onPress={
+                        () => this.onPressButton()}
+                        title="Google Map"
+                        color="#841584" />
+                </View> */}
+            </SafeAreaView>
         );
     }
 }
